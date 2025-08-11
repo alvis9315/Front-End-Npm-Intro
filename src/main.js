@@ -4,9 +4,6 @@ import { MotionPlugin } from '@vueuse/motion'
 import App from './App.vue'
 import 'vue-toastification/dist/index.css'
 
-// 全域導入 SCSS 樣式
-import './styles/main.scss'
-
 // Naive UI 樣式
 const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'

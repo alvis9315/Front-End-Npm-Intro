@@ -30,7 +30,7 @@
                     </n-button>
                   </div>
                 </div>
-                
+                      @click="openDocsUrl('https://vue3-marquee.vercel.app/introduction/v4')"
                 <!-- 官方文件連結 -->
                 <div class="docs-link-container">
                   <n-button 
@@ -589,7 +589,17 @@
                   <!-- 套件版本：Vue3-Marquee -->
                   <div class="package-comparison">
                     <div class="section-header">
-                      <h4 style="color: #10b981;">📦 Vue3-Marquee 套件版本</h4>
+                      <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <h4 style="color: #10b981;">📦 Vue3-Marquee 套件版本</h4>
+                        <n-tooltip placement="top">
+                          <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue3-marquee.vercel.app/')" circle>
+                              <span>📖</span>
+                            </n-button>
+                          </template>
+                          查看 Vue3-Marquee 官方文件
+                        </n-tooltip>
+                      </div>
                       <div class="control-group">
                         <n-button 
                           circle 
@@ -734,7 +744,17 @@
                   <!-- 套件版本：Vue3-Carousel 垂直輪播 -->
                   <div class="package-comparison">
                     <div class="section-header">
-                      <h4 style="color: #10b981;">📦 Vue3-Carousel 垂直套件版本</h4>
+                      <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <h4 style="color: #10b981;">📦 Vue3-Carousel 垂直套件版本</h4>
+                        <n-tooltip placement="top">
+                          <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue3-carousel.ismail9k.com/')" circle>
+                              <span>📖</span>
+                            </n-button>
+                          </template>
+                          查看 Vue3-Carousel 官方文件
+                        </n-tooltip>
+                      </div>
                       <div class="control-group">
                         <n-button 
                           circle 
@@ -868,7 +888,7 @@
                             <div class="banner-text">
                               <h3>{{ banner.title }}</h3>
                               <p>{{ banner.description }}</p>
-                              <n-button type="primary" @click="openBannerUrl(banner.url)">
+                              <n-button type="warning" @click="openBannerUrl(banner.url)">
                                 {{ banner.buttonText }}
                               </n-button>
                             </div>
@@ -896,7 +916,17 @@
                   <!-- 套件版本：Vue3-Carousel Banner輪播 -->
                   <div class="package-comparison">
                     <div class="section-header">
-                      <h4 style="color: #10b981;">📦 Vue3-Carousel Banner套件版本</h4>
+                      <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <h4 style="color: #10b981;">📦 Vue3-Carousel Banner套件版本</h4>
+                        <n-tooltip placement="top">
+                          <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue3-carousel.ismail9k.com/')" circle>
+                              <span>📖</span>
+                            </n-button>
+                          </template>
+                          查看 Vue3-Carousel 官方文件
+                        </n-tooltip>
+                      </div>
                       <div class="control-group">
                         <n-button 
                           circle 
@@ -923,7 +953,7 @@
                               <div class="banner-text">
                                 <h3>{{ banner.title }}</h3>
                                 <p>{{ banner.description }}</p>
-                                <n-button type="primary" @click="openBannerUrl(banner.url)">
+                                <n-button type="warning" @click="openBannerUrl(banner.url)">
                                   {{ banner.buttonText }}
                                 </n-button>
                               </div>
@@ -1076,10 +1106,6 @@
                       <p>支援左右導航按鈕、底部指示器點擊、自動播放三種操作方式</p>
                     </div>
                   </div>
-
-                  <div class="performance-highlights">
-                    <h5>🚀 效能特色：</h5>
-                  </div>
                 </div>
               </div>
             </n-tab-pane>
@@ -1108,6 +1134,12 @@
 </template>
 
 <script setup>
+import nativeBannerCode from './code-snippets/banner/NativeBanner.vue?raw'
+import packageBannerCode from './code-snippets/banner/PackageBanner.vue?raw'
+import nativeVerticalCode from './code-snippets/vertical-carousel/NativeVertical.vue?raw'
+import packageVerticalCode from './code-snippets/vertical-carousel/PackageVertical.vue?raw'
+import nativeMarqueeCode from './code-snippets/marquee/NativeMarquee.vue?raw'
+import packageMarqueeCode from './code-snippets/marquee/PackageMarquee.vue?raw'
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { darkTheme } from 'naive-ui'
 import { useToast } from 'vue-toastification'
@@ -1118,22 +1150,19 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 import 'vue3-carousel/dist/carousel.css'
 
-// 導入所有代碼片段
-import {
-  basicMotionCode,
-  scrollMotionCode,
-  hoverMotionCode,
-  toastBasicCode,
-  toastAdvancedCode,
-  virtualScrollerCode,
-  virtualPerformanceCode,
-  nativeMarqueeCode,
-  packageMarqueeCode,
-  nativeBannerCode,
-  packageBannerCode,
-  nativeVerticalCode,
-  packageVerticalCode
-} from './code-snippets/index.js'
+// import NativeMarquee from './code-snippets/marquee/NativeMarquee.vue'
+// import PackageMarquee from './code-snippets/marquee/PackageMarquee.vue'
+// import BasicMotion from './code-snippets/motion/BasicMotion.vue'
+// import HoverMotion from './code-snippets/motion/HoverMotion.vue'
+// import ScrollMotion from './code-snippets/motion/ScrollMotion.vue'
+// import BasicToast from './code-snippets/toast/BasicToast.vue'
+// import AdvancedToast from './code-snippets/toast/AdvancedToast.vue'
+// import NativeVertical from './code-snippets/vertical-carousel/NativeVertical.vue'
+// import PackageVertical from './code-snippets/vertical-carousel/PackageVertical.vue'
+// import VirtualPerformance from './code-snippets/virtual-scroll/VirtualPerformance.vue'
+// import VirtualScroller from './code-snippets/virtual-scroll/VirtualScroller.vue'
+// import NativeBanner from './code-snippets/banner/NativeBanner.vue'
+// import PackageBanner from './code-snippets/banner/PackageBanner.vue'
 
 const toast = useToast()
 const activeTab = ref('motion')
@@ -1998,7 +2027,6 @@ const openBannerUrl = (url) => {
 const openDocsUrl = (url) => {
   if (url) {
     window.open(url, '_blank')
-    toast.success('📖 正在開啟 VueUse Motion 官方文件')
   }
 }
 </script>
