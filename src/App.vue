@@ -16,8 +16,24 @@
             <n-tab-pane name="motion" tab="🎭 動畫特效">
               <div class="demo-section">
                 <div class="section-header">
-                  <h3>VueUse Motion 套件展示</h3>
-                  <div class="control-group">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h4>VueUse Motion 套件展示</h4>
+                    <n-tooltip placement="top">
+                      <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://motion.vueuse.org/')" circle>
+                          <span>📖</span>
+                        </n-button>
+                      </template>
+                      查看 VueUse Motion 官方文件
+                    </n-tooltip>
+                  </div>
+                </div>
+                
+                <!-- 基礎動畫展示 -->
+                <n-divider>基礎進場動畫</n-divider>
+                <div class="usage-info">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h4 style="margin: 0;">💡 使用方式</h4>
                     <n-button 
                       circle 
                       size="small" 
@@ -29,26 +45,6 @@
                       </template>
                     </n-button>
                   </div>
-                </div>
-                      @click="openDocsUrl('https://vue3-marquee.vercel.app/introduction/v4')"
-                <!-- 官方文件連結 -->
-                <div class="docs-link-container">
-                  <n-button 
-                    type="info" 
-                    size="medium" 
-                    @click="openDocsUrl('https://motion.vueuse.org/')"
-                    class="docs-link-btn">
-                    📖 查看 VueUse Motion 官方文件
-                  </n-button>
-                  <p class="docs-description">
-                    VueUse Motion 是一個強大的 Vue 3 動畫庫，提供聲明式動畫解決方案，支援多種觸發方式和動畫效果
-                  </p>
-                </div>
-                
-                <!-- 基礎動畫展示 -->
-                <n-divider>基礎進場動畫</n-divider>
-                <div class="usage-info">
-                  <h4>💡 使用方式</h4>
                   <n-code :code="basicMotionCode"></n-code>
                   <p class="usage-description">
                     使用 <code>v-motion</code> 指令搭配 <code>:initial</code> 和 <code>:enter</code> 屬性定義動畫的起始狀態和結束狀態
@@ -195,21 +191,17 @@
             <n-tab-pane name="toast" tab="📢 通知彈窗">
               <div class="demo-section">
                 <div class="section-header">
-                  <h3>Vue Toastification 套件展示</h3>
-                </div>
-                
-                <!-- 官方文件連結 -->
-                <div class="docs-link-container">
-                  <n-button 
-                    type="info" 
-                    size="medium" 
-                    @click="openDocsUrl('https://vue-toastification.maronato.dev/')"
-                    class="docs-link-btn">
-                    📖 查看 Vue Toastification 官方文件
-                  </n-button>
-                  <p class="docs-description">
-                    Vue Toastification 是一個現代化的 Vue 通知系統，提供豐富的自訂選項和動畫效果
-                  </p>
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h4>Vue Toastification 套件展示</h4>
+                    <n-tooltip placement="top">
+                      <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue-toastification.maronato.dev/')" circle>
+                          <span>📖</span>
+                        </n-button>
+                      </template>
+                      查看 Vue Toastification 官方文件
+                    </n-tooltip>
+                  </div>
                 </div>
 
                 <!-- 基本通知展示 -->
@@ -281,7 +273,17 @@
             <n-tab-pane name="virtual" tab="📜 虛擬滾動">
               <div class="demo-section">
                 <div class="section-header">
-                  <h3>Vue Virtual Scroller 套件展示</h3>
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h4>Vue Virtual Scroller 套件展示</h4>
+                    <n-tooltip placement="top">
+                      <template #trigger>
+                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://github.com/Akryum/vue-virtual-scroller')" circle>
+                          <span>📖</span>
+                        </n-button>
+                      </template>
+                      查看 Vue Virtual Scroller 官方文件
+                    </n-tooltip>
+                  </div>
                 </div>
                 
                 <!-- 主要操作區 - 放在最頂部 -->
@@ -1109,6 +1111,27 @@
                 </div>
               </div>
             </n-tab-pane>
+            <n-tab-pane name="floating-ui" tab="💬 浮動定位">
+              <div class="demo-section">
+                <div class="section-header">
+                  <h3>@floating-ui/vue 套件展示</h3>
+                </div>
+                <div class="docs-link-container">
+                  <n-button tertiary size="medium" class="docs-link-btn" @click="openDocsUrl('https://floating-ui.com/docs/vue')" circle style="margin-left: 0.5rem; color: #7c3aed;">
+                    <span>📖</span>
+                  </n-button>
+                  <p class="docs-description">@floating-ui/vue 是一個高效的浮動定位工具，常用於 tooltip、popover、dropdown 等元件。</p>
+                </div>
+                <n-divider>浮動定位元件範例</n-divider>
+                <div style="display: flex; align-items: center; gap: 2rem; margin-top: 2rem; margin-bottom: 8rem; flex-wrap: wrap;">
+                  <FloatingTooltipDemo />
+                  <FloatingArrowTooltipDemo />
+                  <FloatingPopoverDemo />
+                  <FloatingDropdownDemo />
+                  <FloatingContextMenuDemo />
+                </div>
+              </div>
+            </n-tab-pane>
           </n-tabs>
         </n-card>
 
@@ -1134,6 +1157,11 @@
 </template>
 
 <script setup>
+import FloatingTooltipDemo from './components/FloatingTooltipDemo.vue'
+import FloatingPopoverDemo from './components/FloatingPopoverDemo.vue'
+import FloatingDropdownDemo from './components/FloatingDropdownDemo.vue'
+import FloatingContextMenuDemo from './components/FloatingContextMenuDemo.vue'
+import FloatingArrowTooltipDemo from './components/FloatingArrowTooltipDemo.vue'
 import nativeBannerCode from './code-snippets/banner/NativeBanner.vue?raw'
 import packageBannerCode from './code-snippets/banner/PackageBanner.vue?raw'
 import nativeVerticalCode from './code-snippets/vertical-carousel/NativeVertical.vue?raw'
