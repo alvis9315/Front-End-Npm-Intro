@@ -595,7 +595,7 @@
                         <h4 style="color: #10b981;">📦 Vue3-Marquee 套件版本</h4>
                         <n-tooltip placement="top">
                           <template #trigger>
-                        <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue3-marquee.vercel.app/')" circle>
+                            <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" @click="openDocsUrl('https://vue3-marquee.vercel.app/')" circle>
                               <span>📖</span>
                             </n-button>
                           </template>
@@ -1132,6 +1132,11 @@
                 </div>
               </div>
             </n-tab-pane>
+
+            <!-- Vue Leaflet 地圖展示 -->
+            <n-tab-pane name="leaflet" tab="🗺️ 互動地圖">
+              <LeafletMapDemo />
+            </n-tab-pane>
           </n-tabs>
         </n-card>
 
@@ -1139,16 +1144,16 @@
         <n-card v-motion-slide-visible-bottom class="summary-card">
           <h3>技術分享總結</h3>
           <div class="tech-grid">
-            <div 
-              v-for="tech in techStack" 
-              :key="tech.name" 
-              class="tech-item clickable"
-              @click="navigateToTab(tech.tab)">
-              <div class="tech-icon">{{ tech.icon }}</div>
-              <h4>{{ tech.name }}</h4>
-              <p>{{ tech.description }}</p>
-              <n-tag :type="tech.compatibility" size="small">{{ tech.status }}</n-tag>
-            </div>
+              <div 
+                v-for="tech in techStack" 
+                :key="tech.name" 
+                class="tech-item clickable"
+                @click="navigateToTab(tech.tab)">
+                <div class="tech-icon">{{ tech.icon }}</div>
+                <h4>{{ tech.name }}</h4>
+                <p>{{ tech.description }}</p>
+                <n-tag :type="tech.compatibility" size="small">{{ tech.status }}</n-tag>
+              </div>
           </div>
         </n-card>
       </div>
@@ -1157,11 +1162,13 @@
 </template>
 
 <script setup>
+import 'leaflet/dist/leaflet.css'
 import FloatingTooltipDemo from './components/FloatingTooltipDemo.vue'
 import FloatingPopoverDemo from './components/FloatingPopoverDemo.vue'
 import FloatingDropdownDemo from './components/FloatingDropdownDemo.vue'
 import FloatingContextMenuDemo from './components/FloatingContextMenuDemo.vue'
 import FloatingArrowTooltipDemo from './components/FloatingArrowTooltipDemo.vue'
+import LeafletMapDemo from './components/LeafletMapDemo.vue'
 import nativeBannerCode from './code-snippets/banner/NativeBanner.vue?raw'
 import packageBannerCode from './code-snippets/banner/PackageBanner.vue?raw'
 import nativeVerticalCode from './code-snippets/vertical-carousel/NativeVertical.vue?raw'
@@ -1395,6 +1402,22 @@ const techStack = ref([
     compatibility: 'info',
     status: '原生支持',
     tab: 'marquee'
+  },
+    {
+    name: '浮動定位',
+    icon: '💬',
+    description: '高效浮動定位元件，支援 Tooltip、Popover、Dropdown 等效果',
+    compatibility: 'info',
+    status: '彈性定位',
+    tab: 'floating-ui'
+  },
+    {
+    name: '互動地圖',
+    icon: '🗺️',
+    description: 'Vue Leaflet 地圖元件，支援互動、標記、框選等地圖功能可操作使用',
+    compatibility: 'info',
+    status: '地圖互動',
+    tab: 'leaflet'
   }
 ])
 
@@ -3647,7 +3670,7 @@ const openDocsUrl = (url) => {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
