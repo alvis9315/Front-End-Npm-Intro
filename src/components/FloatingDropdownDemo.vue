@@ -15,8 +15,18 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 const show = ref(false)
-function select(option) { show.value = false; alert('你選擇了：' + option) }
+
+function select(option) { 
+  show.value = false
+  toast.success(`✅ 你選擇了：${option}`, {
+    position: 'top-right',
+    timeout: 3000
+  })
+}
 </script>
 <style scoped>
 .floating-btn { 
