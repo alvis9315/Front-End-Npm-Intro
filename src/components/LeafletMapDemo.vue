@@ -204,34 +204,34 @@
     <n-divider>🔧 實際應用</n-divider>
     <div style="gap: 12px;">
       <div class="tech-grid">
-        <div class="tech-item clickable" @click="window.open('https://leafletjs.com/examples/quick-start/', '_blank')">
+        <a class="tech-item clickable no-underline" href="https://leafletjs.com/examples/quick-start/" target="_blank">
           <div class="tech-icon">📍</div>
           <div class="tech-content">
             <h4>Leaflet 官方 Quick Start</h4>
             <p>Leaflet 官方快速入門範例</p>
           </div>
-        </div>
-        <div class="tech-item clickable" @click="window.open('https://openstreetmap.org/', '_blank')">
+        </a>
+        <a class="tech-item clickable no-underline" href="https://openstreetmap.org/" target="_blank">
           <div class="tech-icon">📍</div>
           <div class="tech-content">
             <h4>OpenStreetMap</h4>
             <p>全球最大開放地圖平台</p>
           </div>
-        </div>
-        <div class="tech-item clickable" @click="window.open('https://umap.openstreetmap.fr/', '_blank')">
+        </a>
+        <a class="tech-item clickable no-underline" href="https://umap.openstreetmap.fr/" target="_blank">
           <div class="tech-icon">📍</div>
           <div class="tech-content">
             <h4>uMap (OpenStreetMap + Leaflet)</h4>
             <p>自訂互動地圖工具</p>
           </div>
-        </div>
-        <div class="tech-item clickable" @click="window.open('https://leaflet-extras.github.io/leaflet-providers/preview/', '_blank')">
+        </a>
+        <a class="tech-item clickable no-underline" href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank">
           <div class="tech-icon">📍</div>
           <div class="tech-content">
             <h4>Leaflet Providers Preview</h4>
             <p>Leaflet 地圖圖層預覽</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
