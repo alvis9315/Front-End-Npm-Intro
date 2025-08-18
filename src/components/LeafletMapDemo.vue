@@ -165,7 +165,6 @@
           <span v-else-if="selectionPoints.length < 3">已選擇 {{ selectionPoints.length }} 個點 (至少需要3個點)</span>
           <span v-else>已選擇 {{ selectionPoints.length }} 個點，可以確認框選</span>
         </p>
-        <p><strong>地圖範圍:</strong> 台北市及周邊地區</p>
       </n-card>
     </div>
     <!-- 功能說明 -->
@@ -203,31 +202,37 @@
       </n-gi>
     </n-grid>
     <n-divider>🔧 實際應用</n-divider>
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <a class="no-underline" href="https://leafletjs.com/examples/quick-start/" target="_blank">
-        <n-card title="📍 Leaflet 官方 Quick Start" size="small">
-        </n-card>
-      </a>
-      <a class="no-underline" href="https://openstreetmap.org/" target="_blank">
-        <n-card title="📍 OpenStreetMap" size="small">
-        </n-card>
-      </a>
-      <a class="no-underline" href="https://umap.openstreetmap.fr/" target="_blank">
-        <n-card title="📍 uMap (OpenStreetMap + Leaflet)" size="small">
-        </n-card>
-      </a>
-      <a class="no-underline" href="https://www.londonmap.info/" target="_blank">
-        <n-card title="📍 LondonMap (Leaflet Demo)" size="small">
-        </n-card>
-      </a>
-      <a class="no-underline" href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank">
-        <n-card title="📍 Leaflet Providers Preview" size="small">
-        </n-card>
-      </a>
-      <a class="no-underline" href="https://www.openrouteservice.org/maps/" target="_blank">
-        <n-card title="📍 OpenRouteService Maps" size="small">
-        </n-card>
-      </a>
+    <div style="gap: 12px;">
+      <div class="tech-grid">
+        <div class="tech-item clickable" @click="window.open('https://leafletjs.com/examples/quick-start/', '_blank')">
+          <div class="tech-icon">📍</div>
+          <div class="tech-content">
+            <h4>Leaflet 官方 Quick Start</h4>
+            <p>Leaflet 官方快速入門範例</p>
+          </div>
+        </div>
+        <div class="tech-item clickable" @click="window.open('https://openstreetmap.org/', '_blank')">
+          <div class="tech-icon">📍</div>
+          <div class="tech-content">
+            <h4>OpenStreetMap</h4>
+            <p>全球最大開放地圖平台</p>
+          </div>
+        </div>
+        <div class="tech-item clickable" @click="window.open('https://umap.openstreetmap.fr/', '_blank')">
+          <div class="tech-icon">📍</div>
+          <div class="tech-content">
+            <h4>uMap (OpenStreetMap + Leaflet)</h4>
+            <p>自訂互動地圖工具</p>
+          </div>
+        </div>
+        <div class="tech-item clickable" @click="window.open('https://leaflet-extras.github.io/leaflet-providers/preview/', '_blank')">
+          <div class="tech-icon">📍</div>
+          <div class="tech-content">
+            <h4>Leaflet Providers Preview</h4>
+            <p>Leaflet 地圖圖層預覽</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -325,6 +330,71 @@ const advancedCode = `<template>
 </script>
 
 <style scoped>
+/* 完全複用 App.vue 技術分享總結區塊卡片樣式 */
+.tech-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+.tech-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  text-align: left;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 1rem 1.2rem;
+}
+.tech-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  cursor: pointer;
+}
+.tech-item.clickable:active {
+  transform: translateY(-2px) scale(0.98);
+  transition: all 0.1s ease;
+}
+.tech-icon {
+  font-size: 2.5rem;
+  margin-right: 1.2rem;
+  margin-bottom: 0;
+}
+.tech-item h4 {
+  margin: 0 0 0.2rem 0;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+.tech-item p {
+  margin: 0.2rem 0 0 0;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+/* 內容區塊寬度 */
+.tech-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+}
+/* 實際應用卡片底色 - 偏深銀色 */
+.dark-silver-card {
+  background: linear-gradient(135deg, #44484e 0%, #6c6f75 100%) !important;
+  border: none !important;
+}
 .leaflet-demo-container {
   padding: 0;
 }
