@@ -16,7 +16,7 @@ export default defineConfig({
       dts: true,
     }),
   ],
-  base: './',
+  base: '/Front-End-Npm-Intro/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
