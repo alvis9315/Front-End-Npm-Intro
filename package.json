@@ -3,9 +3,10 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --mode development --port 3001",
-    "build": "vite build",
-    "preview": "vite preview --port 3002"
+  "dev": "vite --mode development --port 3001",
+  "build": "vite build",
+  "preview": "vite preview --port 3002",
+  "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.1.8",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
+    "gh-pages": "^6.3.0",
     "sass": "^1.90.0",
     "unplugin-auto-import": "^0.19.0",
     "unplugin-vue-components": "^0.28.0",
