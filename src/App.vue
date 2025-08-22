@@ -948,7 +948,8 @@
                         :autoplay="isBannerPackageAutoPlay ? 5000 : 0"
                         :transition="600"
                         :wrapAround="true"
-                        :height="200">
+                        :height="200"
+                        :mouseWheel="true">
                         <Slide v-for="(banner, index) in bannerItems" :key="index">
                           <div class="package-banner-slide" :style="{ background: banner.gradient }">
                             <div class="package-banner-content">

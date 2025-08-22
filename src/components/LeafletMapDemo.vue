@@ -5,7 +5,7 @@
       <h3 style="margin: 0; color: #FFFF; font-size: 24px; font-weight: bold;">
         🗺️ Vue Leaflet 互動地圖
       </h3>
-      <a href="https://vue-leaflet.github.io/vue-leaflet/" target="_blank">
+      <a href="https://github.com/vue-leaflet/vue-leaflet" target="_blank">
         <n-tooltip placement="top">
             <template #trigger>
             <n-button tertiary style="margin-left: 0.5rem; color: #fff; border: none;" size="medium" class="docs-link-btn" circle>
