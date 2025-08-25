@@ -5,8 +5,7 @@
       <div class="container">
         <!-- 標題區域 -->
         <div v-motion-slide-visible-once-top class="header">
-          <h1 class="title">Vue.js 新套件技術分享</h1>
-          <p class="subtitle">探索與現有架構完美兼容的新 NPM 套件</p>
+          <h1 class="title">Vue3 實用套件技術分享</h1>
         </div>
 
         <!-- 套件展示區域 -->
@@ -533,7 +532,14 @@
                   <h4>🚀 效能比較</h4>
                   <n-code :code="virtualPerformanceCode"></n-code>
                   <p class="usage-description">
-                    虛擬滾動只渲染可視範圍內的元素，即使有 {{ items.length.toLocaleString() }} 筆資料，DOM 中只維持少量元素，記憶體用量和渲染效能都得到最佳化
+                    虛擬滾動能順暢處理大量資料，主要原因如下：<br>
+                    <ul>
+                      <li>只渲染可見區域的項目，{{ items.length.toLocaleString() }} 筆資料也只產生少量 DOM 元素</li>
+                      <li>資料本身存在記憶體，不會造成瀏覽器卡住</li>
+                      <li>滾動時動態計算並渲染可見範圍，未顯示的項目不會建立 DOM</li>
+                      <li>避免一次渲染大量 DOM 元素，效能大幅提升</li>
+                    </ul>
+                    <span style="display:block;margin-top:0.5em;">總結：資料量再大也不會卡，因為只渲染可見區域，避免大量 DOM 操作，這就是虛擬滾動的核心邏輯。</span>
                   </p>
                 </div>
                 <div class="performance-stats">
